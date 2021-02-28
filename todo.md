@@ -1,7 +1,8 @@
-(A) Find assets @assets
-(A) Draw Screen @game +Snake
-(A) Implement a Menu - Start and Pause should suffice for now. @menu +Snake
-(A) Draw Grid, leave space to the right @snake +Snake
+(A) Make some Assets @assets
+(A) Draw Screen @game +Snake {cm:2021-02-28}
+(A) Implement a Menu - Start and Pause should suffice for now. @menu +Snake {cm:2021-02-28}
+(A) Draw Grid, leave space to the right @snake +Snake {cm:2021-03-01}
+(A) Get rid of that nasty optical illusion I created.
 (A) Draw the snake @snake +Snake
 (A) Move the Snake @snake +Snake
 (A) Spawn in Food on a Timer @snake +Snake
