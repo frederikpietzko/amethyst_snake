@@ -1,5 +1,5 @@
 use amethyst::{
-    assets::{erased_serde::private::serde::export, Handle},
+    assets::Handle,
     ecs::Entity,
     prelude::*,
     ui::{Anchor, FontAsset, Interactable, LineMode, UiEventType, UiText, UiTransform},
@@ -15,11 +15,6 @@ pub const BUTTON_COLOR: [f32; 4] = [1., 1., 1., 0.5];
 pub const BUTTON_HOVER_COLOR: [f32; 4] = [0.246, 0.746, 0.246, 0.7];
 pub const TOP_PADDING: f32 = 200.;
 
-pub struct MenuItems {
-    pub start_button: Entity,
-    pub exit_button: Entity,
-}
-
 #[derive(Default)]
 pub struct MenuState {
     start_button: Option<Entity>,
@@ -34,10 +29,6 @@ impl SimpleState for MenuState {
         let start_button = create_start_button(world, font.clone());
         let exit_button = create_exit_button(world, font);
 
-        world.insert(MenuItems {
-            start_button,
-            exit_button,
-        });
         self.start_button = Some(start_button);
         self.exit_button = Some(exit_button);
     }

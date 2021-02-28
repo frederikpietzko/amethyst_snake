@@ -1,14 +1,9 @@
-use std::process;
-
 use amethyst::{
     ecs::{Read, ReadStorage, ReaderId, System, SystemData, Write, WriteStorage},
     prelude::SystemDesc,
-    shred::ReadExpect,
     shrev::EventChannel,
     ui::{UiEvent, UiEventType, UiText, UiTransform},
 };
-
-use crate::ui::MenuItems;
 
 use super::super::{BUTTON_COLOR, BUTTON_HOVER_COLOR, MENU_FONT_SIZE, MENU_HOVER_FONT_SIZE};
 pub struct MainMenuSystem {

@@ -1,11 +1,10 @@
 mod ui;
 mod utils;
-use ui::{MainMenuSystem, MainMenuSystemDesc, MenuState};
+use ui::{MainMenuSystemDesc, MenuState};
 
 use amethyst::{
     core::TransformBundle,
     input::{InputBundle, StringBindings},
-    prelude::*,
     renderer::{
         plugins::{RenderFlat2D, RenderToWindow},
         types::DefaultBackend,
