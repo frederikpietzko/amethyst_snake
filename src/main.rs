@@ -1,3 +1,4 @@
+mod snake;
 mod ui;
 mod utils;
 use ui::{MainMenuSystemDesc, MenuState};

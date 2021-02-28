@@ -37,7 +37,6 @@ impl<'s> System<'s> for MainMenuSystem {
                 }
                 _ => {}
             }
-            println!("{:?}", event);
         }
     }
 }

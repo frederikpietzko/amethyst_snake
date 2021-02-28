@@ -1,11 +1,12 @@
 use amethyst::{
     assets::Handle,
+    core::Hidden,
     ecs::Entity,
     prelude::*,
     ui::{Anchor, FontAsset, Interactable, LineMode, UiEventType, UiText, UiTransform},
 };
 
-use crate::utils::load_font;
+use crate::{snake::SnakeState, utils::load_font};
 
 pub const MENU_FONT_SIZE: f32 = 25.;
 pub const MENU_HOVER_FONT_SIZE: f32 = 30.;
@@ -41,17 +42,43 @@ impl SimpleState for MenuState {
         if let StateEvent::Ui(ui_event) = event {
             let start_button = self.start_button.unwrap();
             let exit_button = self.exit_button.unwrap();
+
             if ui_event.event_type == UiEventType::Click {
                 if ui_event.target == exit_button {
                     return Trans::Quit;
                 }
                 if ui_event.target == start_button {
-                    // TODO: Push the Game state.
-                    return SimpleTrans::None;
+                    return Trans::Push(Box::new(SnakeState::default()));
                 }
             }
         }
         SimpleTrans::None
+    }
+
+    fn on_pause(&mut self, data: StateData<'_, GameData<'_, '_>>) {
+        let world = data.world;
+        let mut hiddens = world.write_storage::<Hidden>();
+
+        if let Some(btn) = self.exit_button {
+            let _ = hiddens.insert(btn, Hidden);
+        }
+
+        if let Some(btn) = self.start_button {
+            let _ = hiddens.insert(btn, Hidden);
+        }
+    }
+
+    fn on_resume(&mut self, data: StateData<'_, GameData<'_, '_>>) {
+        let world = data.world;
+        let mut hiddens = world.write_storage::<Hidden>();
+
+        if let Some(btn) = self.exit_button {
+            let _ = hiddens.remove(btn);
+        }
+
+        if let Some(btn) = self.start_button {
+            let _ = hiddens.remove(btn);
+        }
     }
 }
 
