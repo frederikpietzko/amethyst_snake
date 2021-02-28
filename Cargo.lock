@@ -102,8 +102,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "amethyst-starter-2d"
-version = "0.2.0"
+name = "amethyst-snake"
+version = "0.1.0"
 dependencies = [
  "amethyst",
  "log",
